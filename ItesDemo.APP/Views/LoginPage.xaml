@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage              
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:ItesDemo.APP.ViewModels"
+    x:Class="ItesDemo.APP.Views.LoginPage"
+    x:DataType="vm:LoginViewModel"
+    Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Margin="20">
+
+        <Image Source="samurai.png" WidthRequest="200" />
+        <Label 
+            HorizontalOptions="Center" 
+            FontSize="22" 
+            Margin="0,20"
+            TextColor="DodgerBlue" 
+            Text="Oriental Bikes" />
+
+        <Entry WidthRequest="400" Text="{Binding Usuario}" Placeholder="Nombre Usuario"/>
+        
+            <Entry 
+                WidthRequest="400"
+                Text="{Binding Password}" 
+                IsPassword="True" 
+                Placeholder="Contraseña" 
+         />       
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        <Button IsVisible="{Binding BtnVisible}" WidthRequest="200" Text="Iniciar Batalla" Command="{Binding LoginCommand}" Margin="0,20"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ItesDemo.APP.Views.AcercaPage"
+             Title="AcercaPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Programador"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+        <Border StrokeThickness="6"
+                StrokeShape="RoundRectangle 40,0,0,40"
+                HorizontalOptions="Center"
+>
+            <Border.Stroke>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="Blue"
+                        Offset="0.1" />
+                    <GradientStop Color="Brown"
+                        Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Stroke>
+            <Image Source="programador.jpg" 
+                   HeightRequest="300"/>
+        </Border>
+
+
+    </VerticalStackLayout>
+    
+</ContentPage>

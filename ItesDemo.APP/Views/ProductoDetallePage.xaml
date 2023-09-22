@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ItesDemo.APP.Views.ProductoDetallePage"
+             xmlns:vmodel="clr-namespace:ItesDemo.APP.ViewModels"             
+             x:DataType="vmodel:ProductoDetalleViewModel"
+             Title="{Binding Title}">
+    <VerticalStackLayout>
+
+        <Border StrokeThickness="6"
+                StrokeShape="RoundRectangle 15,15,15,15"
+                HorizontalOptions="Center"
+                BackgroundColor="AliceBlue"
+                >
+            <Border.Stroke>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="Orange"
+                                            Offset="0.1" />
+                    <GradientStop Color="Brown"
+                                        Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Stroke>
+            <Image Source="{Binding ProductoSeleccion.urlImagen}" HeightRequest="300" />
+        </Border>
+
+        
+        <Label Text="{Binding ProductoSeleccion.nombre}" FontSize="Medium" TextColor="DarkMagenta"/>
+        <Grid RowDefinitions="1*" ColumnDefinitions=".5*, .5*">
+            <Label Grid.Column="0" Text="{Binding ProductoSeleccion.precio, StringFormat='Precio: ${0}'}" TextColor="Tomato"/>
+            <Label Grid.Column="1" Text="{Binding ProductoSeleccion.tipo, StringFormat='{0}'}" FontAttributes="Bold" TextColor="DarkOliveGreen"/>
+            
+        </Grid>
+        <Button Margin="0, 10" Text="Volver" Command="{Binding GoToBackCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

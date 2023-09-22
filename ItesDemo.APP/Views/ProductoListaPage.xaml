@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ItesDemo.APP.Views.ProductoListaPage"
+             xmlns:vm="clr-namespace:ItesDemo.APP.ViewModels"                
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:ProductoListaViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Grid Margin="5"           
+          RowSpacing="0"
+          RowDefinitions="*, Auto">
+
+        <RefreshView Command="{Binding RefreshCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                ItemsSource="{Binding Productos}"
+                SelectionMode="Single" 
+                SelectedItem="{Binding ProductoSeleccion}"
+                SelectionChangedCommand="{Binding GoToDetailCommand}"
+                BackgroundColor="Transparent"                
+                EmptyView="SIN DATOS DISPONIBLES"
+                >
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="65" />
+                                <RowDefinition Height="35" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="340" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border StrokeThickness="4"
+                                StrokeShape="RoundRectangle 5,5,5,5"
+>
+                                <Border.Stroke>
+                                    <LinearGradientBrush EndPoint="0,1">
+                                        <GradientStop Color="Orange"
+                                            Offset="0" />
+                                        <GradientStop Color="Brown"
+                                        Offset="0" />
+                                    </LinearGradientBrush>
+                                </Border.Stroke>
+                                <Image Grid.RowSpan="2"
+                                    Source="{Binding urlImagen}"
+                                    Aspect="AspectFill"
+                                    HeightRequest="60"
+                                    WidthRequest="60" />
+                            </Border>
+                            
+                            <Label Grid.Column="1"
+                       Text="{Binding nombre}"
+                       FontAttributes="Bold"
+                       LineBreakMode="TailTruncation" />
+                            <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding tipo}"
+                       LineBreakMode="TailTruncation"
+                       FontAttributes="Italic"
+                       VerticalOptions="End" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+
+            </CollectionView>
+        </RefreshView>
+        <Button
+            Grid.Row="1"
+            Text="Volver"
+            Margin="8"
+            Command="{Binding GoToCancelarCommand}"
+            Style="{StaticResource ButtonOutline}"
+            />
+        <ActivityIndicator 
+            Grid.RowSpan="2" 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand"
+            IsVisible="{Binding IsBusy}"
+            IsRunning="{Binding IsBusy}"/>
+    </Grid>
+</ContentPage>
