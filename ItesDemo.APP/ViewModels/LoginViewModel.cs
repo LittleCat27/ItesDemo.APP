@@ -18,7 +18,7 @@ public class LoginViewModel : BaseViewModel
         #if DEBUG
         Usuario = "Alex";
         Password = "1234";
-#endif
+        #endif
         BtnVisible = true;
         // LoginCommand = new Command(async () => await Login());
 
@@ -53,11 +53,11 @@ public class LoginViewModel : BaseViewModel
         {
             IsBusy = true;
             BtnVisible = false;
-
+            if (usuario == "offline") Application.Current.MainPage = new NavigationPage(new InicioPage());
             // asignamos objeto con datos del usuario-establecimiento logueados
             if (usuario != string.Empty && password != string.Empty)
             {
-
+                
                 var apiClient = new ApiClient();
 
                 var response = await apiClient.ValidarLogin(usuario, password);

@@ -41,9 +41,9 @@
                                 <Border.Stroke>
                                     <LinearGradientBrush EndPoint="0,1">
                                         <GradientStop Color="Orange"
-                                            Offset="0" />
+                                            Offset="0.1" />
                                         <GradientStop Color="Brown"
-                                        Offset="0" />
+                                        Offset="1.0" />
                                     </LinearGradientBrush>
                                 </Border.Stroke>
                                 <Image Grid.RowSpan="2"

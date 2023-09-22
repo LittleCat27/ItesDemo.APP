@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ItesDemo.APP.Views.AcercaPage"
-             Title="AcercaPage">
+             Title="AcercaPage"
+             xmlns:vm="clr-namespace:ItesDemo.APP.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:AcercaDeViewModel/>
+    </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label 
             Text="Programador"
@@ -24,7 +28,51 @@
             <Image Source="programador.jpg" 
                    HeightRequest="300"/>
         </Border>
-
+        <Label 
+             Text="Nombre: Joaquín Gregoire"
+             VerticalOptions="Center" 
+             Padding="30, 0"
+         />
+        <Label 
+             Text="Especie: Programador"
+             VerticalOptions="Center" 
+             Padding="30, 0"
+         />
+        <Label 
+             Text="Descripción: Es raro ver estas creaturas a la luz del dia."
+             VerticalOptions="Center" 
+             Padding="30, 0"
+         />
+        <Label Padding="30, 0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Link " />
+                    <Span Text="Repositorio de la API"
+                  TextColor="CadetBlue"
+                  TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://github.com/LittleCat27/ItesDemo.API" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Padding="30, 0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Link " />
+                    <Span Text="Repositorio de la APP Maui"
+                  TextColor="CadetBlue"
+                  TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://github.com/LittleCat27/ItesDemo.APP" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
     </VerticalStackLayout>
     
