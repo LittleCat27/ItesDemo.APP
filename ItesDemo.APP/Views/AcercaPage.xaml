@@ -51,28 +51,19 @@
                   TextColor="CadetBlue"
                   TextDecorations="Underline">
                         <Span.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                            <TapGestureRecognizer 
+                                x:Name="urlAPI"
+                                Command="{Binding TapCommand}"
                                           CommandParameter="https://github.com/LittleCat27/ItesDemo.API" />
                         </Span.GestureRecognizers>
                     </Span>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <Label Padding="30, 0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Link " />
-                    <Span Text="Repositorio de la APP Maui"
-                  TextColor="CadetBlue"
-                  TextDecorations="Underline">
-                        <Span.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TapCommand}"
-                                          CommandParameter="https://github.com/LittleCat27/ItesDemo.APP" />
-                        </Span.GestureRecognizers>
-                    </Span>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+        <Button Text="Repositorio de la APP Maui"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked" />
 
     </VerticalStackLayout>
     

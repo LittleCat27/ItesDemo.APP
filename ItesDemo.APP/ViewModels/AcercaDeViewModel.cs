@@ -38,7 +38,13 @@ public class AcercaDeViewModel : BaseViewModel
     #region COMANDOS
     public ICommand ProcesoAsyncComando => new Command(async () => await ProcesoAsync());
     public ICommand ProcesoSimpleComando => new Command(SimpleMetodo);
-    public ICommand TapCommand => new Command<string>(async (url) => await Browser.Default.OpenAsync(url, BrowserLaunchMode.SystemPreferred));
+    public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
+
+    async void OnButtonClicked(object sender, EventArgs args)
+    {
+        await Launcher.OpenAsync("https://github.com/LittleCat27/ItesDemo.APP");
+    }
+
 
     #endregion
 }
